@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prebuilds.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="productpage.css">
+    <script src="basket.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <div class ="sidenav">
+        <a id="title" href="index.html">Spec Dragon</a>
+        <a href="buildapc.html">Build a Pc</a>
+        <a href="prebuilds.html">Prebuilds</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="basket.html">Basket</a>
+        <img src="moon.png" id="icon">
+        <img src ="specdragondark.png" height="50px" width="50px" class="logo"></img>
+    </div>
+</head>
+<body>
+         <div class="container">
+            <div class="product">
+                <div class="product-main">
+                    <img src="hpPc.png" width="600" height="600" alt="HP laptop" class="productPhoto"/>
+                    <div class="productName">
+                        <h1>HP laptop</h1>
+                        <span>
+                            <p>£4.99</p>
+                        </span>
+                        <a href="basket.html">
+                            <button onclick="addToShoppingCart('hpLaptop', 4.99)"class="buy-now">Buy Now</button>
+                        </a>
+                        
+                    </div>
+                </div>
+                <article>
+                    <h2 style="color:var(--secondary-color);"font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Description</h2>
+                    <p>This has an intel core i9, AMD RADEON RX9000, 16 Gb Ram.</p>
+                </article>
+            </div>
+            <h3 style="color:var(--secondary-color);"font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Related Products</h3>
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card">
+                        <img src="Lenovopc.png" class="card-img-top" alt="Lenovo Laptop">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color:var(--secondary-color)">Lenovo Laptop</h5>
+                            <p class="card-text">This Features an Intel AI 7, Intel UHD intergrated graphics, 32GB of Ram</p>
+                            <a href="Prebuild1.html" id= "button" class="btn btn-primary">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+            <div class="col">
+                <div class="card">
+                    <img src="dellPc.png" class="card-img-top" alt="Dell Laptop">
+                    <div class="card-body">
+                        <h5 class="card-title"style="color:var(--secondary-color)">Dell Laptop</h5>
+                        <p class="card-text">This has an AMD RYZEN 9, Nvidia Geforce RTX 5070 and 24gb of Ram</p>
+                        <a href="Prebuild2.html" id= "button" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="mac.png" class="card-img-top" alt="Macbook">
+                    <div class="card-body">
+                        <h5 class="card-title"style="color:var(--secondary-color)">Macbook</h5>
+                        <p class="card-text">Has an M4 with 24GB of Unified Memory</p>
+                        <a href="Prebuild3.html" id= "button" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="hpPc.png" class="card-img-top" alt="Hp Laptop">
+                    <div class="card-body">
+                        <h5 class="card-title"style="color:var(--secondary-color)">HP Laptop</h5>
+                        <p class="card-text">This has an intel core i9, AMD RADEON RX9000, 16 Gb Ram</p>
+                        <a href="Prebuild4.html" id= "button" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+        
+</body>
+<footer>
+    <p>Ok so plan for website, photos the move on slide show but can be skipped, hot bar on top that expands down to show all categories think Nike page prototype.Include a contact us popup in form of chatbot which asks for email and phone number and allows you to select a list of valid region extensions. Remember Media	 </p>
+    <a href="basket.html">
+    <img class="basket" src="Basket.png" id="iconBasket">
+    </a>
+    <a href="#top" class=Navlink>BACK TO TOP</a>
+    <a href ="contactus.html">
+        <img class="chat" src="Chat.png"id="iconChat">
+    </a>
+</footer>
+<script>
+
+  var icon = document.getElementById("icon");
+
+  var dotheme = (theme) => {
+    document.body.setAttribute("data-theme", theme)
+    if (theme=="light") {
+      icon.src="moon.png"
+      iconChat.src="Chat.png"
+      iconBasket.src="Basket.svg"
+    }else{
+      icon.src="sun.png"
+      iconChat.src="ChatLight.png"
+      iconBasket.src="BasketLight.png"
+    }
+  }
+
+  icon.addEventListener('click', () => {
+    var theme = document.body.getAttribute("data-theme");
+    if (theme == "dark") {
+      dotheme("light");
+    }else {
+      dotheme("dark");
+    }
+  })
+</script>
+</html>

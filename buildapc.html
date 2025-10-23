@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buildapc.css">
+    <script src="basket.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script type ="text/javascript" src ="darkmode.js" defer></script>
+    <div class ="sidenav">
+        <a id="title" href="index.html">Spec Dragon</a>
+        <a href="buildapc.html">Build a Pc</a>
+        <a href="prebuilds.html">Prebuilds</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="basket.html">Basket</a>
+        <img src="moon.png" id="icon">
+        <img src ="specdragondark.png" height="50px" width="50px" class="logo"></img>
+    </div> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+</head>
+<body>
+      <h1 class = "title">Select your specifications for your PC</h1>
+      <br>
+      <!--Creates container for form so it can be styled-->
+      <div class="container">
+      <!--Creates form to make custom build-->
+        <form action="#" method="post">
+            <div class="popup" onclick="infoSpec()">ⓘ Select a Screen Size:
+                <span class="popuptext" id="myPopup">How big the screen is in inches</span>
+            </div>
+            <select id="screenSize"> 
+                <option>13 Inches</option>
+                <option>15 Inches </option>
+            </select>
+            <hr id = "hr">
+            <br>
+            <!--Allows uers to customise a pc and get a quote-->
+            <div class="popup" onclick="infoSpec1()"> ⓘ Select a Storage Size:
+                <span class="popuptext" id="myPopup1">More Storage allows for programs files and photos</span>
+            </div>
+            <select id="storageSize">
+                <option>512GB</option>
+                <option>1TB</option>
+            </select>
+            <!--Creates custom separations between options to separate them the class makes sure the lines are invisible-->
+            <hr id = "hr">
+            <br>
+            <div class="popup" onclick="infoSpec2()">ⓘ Select a Ram Size:
+                <span class="popuptext" id="myPopup2">More Ram allows for more programes and tabs open</span>
+            </div>
+            <select id="mainMemory">
+                <option>16GB</option>
+                <option>32GB</option>
+            </select>
+            <hr id = "hr">
+            <br>
+            <div class="popup" onclick="infoSpec3()">ⓘ Select a GPU:
+              <span class="popuptext" id="myPopup3">Graphical and Gaming Quality</span>
+            </div>
+            <label for="GPUSelect"></label>
+            <select id="GPUSelect" onChange = "updateGPUOptions()">
+                <option value="RadeonPath">AMD Radeon RX</option>
+                <option value="GeforcePath">Nvidia Geforce RTX</option>
+            </select>
+            <hr id = "hr">
+            <label for="GPUitems">GPU Series:</label>
+            <select id="GPUitems">
+                <option></option>
+            </select>
+            <hr id = "hr">
+
+            <div class="popup" onclick="infoSpec4()">ⓘ Select a CPU:
+            <span class="popuptext" id="myPopup4">Speed opening and running programs</span>
+            </div>
+            <!--This is a branching select, so that the next select box changes depending on outcome of this box-->
+            <label for="processorSelect"></label>
+            <select id="processorSelect" onChange = "updateOptions()">
+                <option value="amdPath">AMD RYZEN</option>
+                <option value="intelPath">INTEL CORE</option>
+            </select>
+            <hr id = "hr">
+            <!--Holds list for series of items that can be selected hypothetically-->
+            <label for="items">Processor Series:</label>
+            <select id="items">
+                <option></option>
+            </select>
+            <hr id = "hr">
+            <button onclick="addToShoppingCart('customSpec', 4.99)"id="button" class="btn btn-primary">Add To Cart</button>
+            <script>
+              // Creates a series of options to select each with a meaningful identifier
+                const options = {
+                    amdPath: ["R9", "R7", "R5"],
+                    intelPath: ["i9", "i7", "i5"]
+                };
+                // This actually takes the option from the original branch and gives the chosen option the value 
+                // This value gives the select box for branched option an id.
+                function updateOptions() {
+                    const processorSelect = document.getElementById("processorSelect").value;
+                    const items = document.getElementById("items");
+                    //This calls the branched list earlier
+                    items.innerHTML = '<option> </option>';
+                    //this appends a series of processors to branched path making it an option
+                    //which set of processors taht are choson depends on the options variable branching on what the current value 
+                    // of processor select is, if it were AMD, options would equal that list and that would be appended.
+                    if (processorSelect && options[processorSelect]) {
+                        options[processorSelect].forEach(item =>{
+                            const option = document.createElement("option");
+                            option.value = item.toLowerCase();
+                            option.textContent = item;
+                            items.appendChild(option);
+                        });
+                    }
+                }
+            </script>
+            <script>
+              // Creates a series of options to select each with a meaningful identifier
+                const GPUoptions = {
+                    RadeonPath: ["9070", "7060", "6000"],
+                    GeforcePath: ["5090", "4080", "3070"]
+                };
+                // This actually takes the option from the original branch and gives the chosen option the value 
+                // This value gives the select box for branched option an id.
+                function updateGPUOptions() {
+                    const GPUSelect = document.getElementById("GPUSelect").value;
+                    const GPUitems = document.getElementById("GPUitems");
+                    //This calls the branched list earlier
+                    GPUitems.innerHTML = '<option> </option>';
+                    //this appends a series of processors to branched path making it an option
+                    //which set of processors taht are choson depends on the options variable branching on what the current value 
+                    // of processor select is, if it were AMD, options would equal that list and that would be appended.
+                    if (GPUSelect && GPUoptions[GPUSelect]) {
+                        GPUoptions[GPUSelect].forEach(item =>{
+                            const GPUoption = document.createElement("option");
+                            GPUoption.value = item.toLowerCase();
+                            GPUoption.textContent = item;
+                            GPUitems.appendChild(GPUoption);
+                        });
+                    }
+                }
+            </script>
+        </form>   
+</body>
+<footer>
+    <p></p>
+    <a href="basket.html">
+    <img class="basket" src="Basket.png" id="iconBasket">
+    </a>
+    <a href="#top" class=Navlink>BACK TO TOP</a>
+    <a href ="contactus.html">
+        <img class="chat" src="Chat.png"id="iconChat">
+    </a>
+</footer>
+<nav>
+</nav>
+<script>
+
+  var icon = document.getElementById("icon");
+
+  var dotheme = (theme) => {
+    document.body.setAttribute("data-theme", theme)
+    if (theme=="light") {
+      icon.src="moon.png"
+      iconChat.src="Chat.png"
+      iconBasket.src="Basket.svg"
+    }else{
+      icon.src="sun.png"
+      iconChat.src="ChatLight.png"
+      iconBasket.src="BasketLight.png"
+    }
+  }
+
+  icon.addEventListener('click', () => {
+    var theme = document.body.getAttribute("data-theme");
+    if (theme == "dark") {
+      dotheme("light");
+    }else {
+      dotheme("dark");
+    }
+  })
+  // The function takes a small box containing text from css and displays it for a short period of tim
+  // when the user hovers over item, it gives an explanation
+  function infoSpec() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+  setTimeout(function() {
+  // Makes box only appear for 3 seconds so user doesnt have to manually click off boxes
+  document.getElementById("myPopup").style.display = "none";
+  }, 3000)
+}
+  function infoSpec1() {
+  var popup1 = document.getElementById("myPopup1");
+  popup1.classList.toggle("show");
+  setTimeout(function() {
+  document.getElementById("myPopup1").style.display = "none";
+  }, 3000)
+  
+}
+  function infoSpec2() {
+  var popup2 = document.getElementById("myPopup2");
+  popup2.classList.toggle("show");
+  setTimeout(function() {
+  document.getElementById("myPopup2").style.display = "none";
+  }, 3000)
+  
+}
+  function infoSpec3() {
+  var popup3 = document.getElementById("myPopup3");
+  popup3.classList.toggle("show");
+  setTimeout(function() {
+  document.getElementById("myPopup3").style.display = "none";
+  }, 3000)
+  
+}
+  function infoSpec4() {
+  var popup4 = document.getElementById("myPopup4");
+  popup4.classList.toggle("show");
+  setTimeout(function() {
+  document.getElementById("myPopup4").style.display = "none";
+  }, 3000)
+  
+}
+</script>
+</html>

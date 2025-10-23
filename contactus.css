@@ -1,0 +1,35 @@
+:root{
+--primary-color: white;
+--primary-color-sidenav: black;
+--secondary-color: black;
+--secondary-color-sidenav: white;
+}
+
+[data-theme="dark"]{
+--primary-color: black;
+--secondary-color: white;
+}
+[data-theme="light"]{
+--primary-color: white;
+--secondary-color: black;
+}
+@media(
+  prefers-color-scheme: dark
+){
+  :root:not([data-theme]){
+    --primary-color: black;
+    --secondary-color: white;
+  }
+}
+@media(
+  prefers-color-scheme: light
+){
+  :root:not([data-theme]){
+    --primary-color: white;
+    --secondary-color: black;
+  }
+}
+
+#contact{
+  align-content: center;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="prebuilds.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="basket.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <div class ="sidenav">
+        <a id="title" href="index.html">Spec Dragon</a>
+        <a href="buildapc.html">Build a Pc</a>
+        <a href="prebuilds.html">Prebuilds</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="basket.html">Basket</a>
+        <img src="moon.png" id="icon">
+        <img src ="specdragondark.png" height="50px" width="50px" class="logo"></img>
+    </div>
+    <br>
+    <br>
+    <br>
+</head>
+<body>
+<!--Creates a card strucutre establishing the layout of cards on screen-->
+<div class="row row-cols-1 row-cols-md-2 g-4" style="max-width: 100%;">
+  <div class="col">
+    <div class="card">
+      <!--Imports image of each procust each contains an alt text for acessability-->
+      <img src="Lenovopc.png" class="card-img-top" alt="Lenovo Laptop">
+      <div class="card-body">
+        <!--Contains title that had to be established with inline css to overide BOOTSTRAP default settings-->
+        <h5 class="card-title" style="color:var(--secondary-color)">Lenovo Laptop</h5>
+        <p class="card-text">This Features an Intel AI 7, Intel UHD intergrated graphics, 32GB of Ram</p>
+        <!--The button serves as a link in case the user did not already find the photo links apparent from home page, i have opted
+        for specific buttons-->
+        <a href="Prebuild1.html" id= "button" class="btn btn-primary">Buy Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="dellPc.png" class="card-img-top" alt="Dell Laptop">
+      <div class="card-body">
+        <h5 class="card-title" style="color:var(--secondary-color)">Dell Laptop</h5>
+        <p class="card-text">This has an AMD RYZEN 9, Nvidia Geforce RTX 5070 and 24gb of Ram</p>
+        <a href="Prebuild2.html" id= "button" class="btn btn-primary">Buy Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="mac.png" class="card-img-top" alt="Macbook">
+      <div class="card-body" class="border border-light">
+        <h5 class="card-title" style="color:var(--secondary-color)">Macbook</h5>
+        <p class="card-text">Has an M4 with 24GB of Unified Memory</p>
+        <a href="Prebuild3.html" id= "button" class="btn btn-primary">Buy Now</a>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="hpPc.png" class="card-img-top" alt="HP Laptop">
+      <div class="card-body">
+        <h5 class="card-title" style="color:var(--secondary-color)">HP Laptop</h5>
+        <p class="card-text">This has an intel core i9, AMD RADEON RX9000, 16 Gb Ram</p>
+        <a href="Prebuild4.html" id= "button" class="btn btn-primary">Buy Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<footer>
+    <a href="basket.html">
+    <img class="basket" src="Basket.png" id="iconBasket">
+    </a>
+    <a href="#top" class=Navlink>BACK TO TOP</a>
+    <a href ="contactus.html">
+        <img class="chat" src="Chat.png"id="iconChat">
+    </a>
+</footer>
+<script>
+
+  var icon = document.getElementById("icon");
+
+  var dotheme = (theme) => {
+    document.body.setAttribute("data-theme", theme)
+    if (theme=="light") {
+      icon.src="moon.png"
+      iconChat.src="Chat.png"
+      iconBasket.src="Basket.svg"
+    }else{
+      icon.src="sun.png"
+      iconChat.src="ChatLight.png"
+      iconBasket.src="BasketLight.png"
+    }
+  }
+
+  icon.addEventListener('click', () => {
+    var theme = document.body.getAttribute("data-theme");
+    if (theme == "dark") {
+      dotheme("light");
+    }else {
+      dotheme("dark");
+    }
+  })
+</script>
+</html>

@@ -1,0 +1,128 @@
+:root{
+--primary-color: white;
+--primary-color-sidenav: black;
+--secondary-color: black;
+--secondary-color-sidenav: white;
+}
+
+[data-theme="dark"]{
+--primary-color: black;
+--secondary-color: white;
+}
+[data-theme="light"]{
+--primary-color: white;
+--secondary-color: black;
+}
+@media(
+  prefers-color-scheme: dark
+){
+  :root:not([data-theme]){
+    --primary-color: black;
+    --secondary-color: white;
+  }
+}
+@media(
+  prefers-color-scheme: light
+){
+  :root:not([data-theme]){
+    --primary-color: white;
+    --secondary-color: black;
+  }
+}
+/*Formats light or dark mode to text and titles*/
+body, p, h1, h2, h3, h4, h5 {
+            margin:0; 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+.mb-2 {
+    margin-bottom: 1em;
+    }
+/* formats the boxes within container makign sure they appear in front of background by the y-axis,
+their paddingns marigns and a column flex structure is established*/
+.container-content {
+    padding: 0.5em 1em;
+    max-height: 100%;
+    overflow-y:auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    }
+/* formatting for the boxes products are stored in*/
+.box {
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    box-shadow: 2px 4px 6px 0px rgba(227, 227, 227, 0.77);
+    display: flex;
+    flex-direction: row;
+    }
+/* Formatting for the positioning of products making sure they are stores in the right positons with right distance
+between each product*/
+.products {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+        }
+/* Creates themes and formatting for buttons*/
+button {
+    margin-top: 15px;
+    width: 100%;
+    background-color: white;
+    border: 1px red solid;
+    border-radius: 25px;
+    padding: 5px 0;
+    color: red;
+    min-width: 50px;
+        }
+/* Creates box for titles within a product bocx*/
+.box .product-title {
+    font-weight: bold;
+    }
+/* Makes sure buttons change color and cursor format to indicate responsivness*/
+button:hover {
+    cursor: pointer;
+    background-color: red;
+    color: white;
+            }
+/* Creates margins below product*/
+.product{
+    margin-bottom: 1em;
+        }
+/* formats part of diviaion where the main product aka not the related products are shown*/
+.product .product-main {
+    width: 100%;
+    display: flex;
+    gap: 25px;
+        }
+/* */
+.product-main div {
+    width: 100%;
+        }
+/* Creates margins around the writing within prouct box*/
+.product article {
+    margin: 1em 0;
+        }
+/* Formats padding around prodcut title*/
+.productName{
+    margin-top: 200px;   
+}
+/* Formats buttons to buy now*/
+.buy-now{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border-width: 2px;
+    box-shadow: inset;
+    border-color: var(--secondary-colors);
+    padding: 5px;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+/* Makes button change color on mouse hover to indicate responsivness*/
+.buy-now:hover{
+    background-color:red
+}
+
+@media only screen and (min-width: 400px) {
+    .box {
+            width: 150px;
+            }
+    }

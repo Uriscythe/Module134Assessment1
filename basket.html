@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="basket.css">
+    <script src="main.js"></script>
+    <script src="basket.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <div class ="sidenav">
+        <a id="title" href="index.html">Spec Dragon</a>
+        <a href="buildapc.html">Build a Pc</a>
+        <a href="prebuilds.html">Prebuilds</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="basket.html">Basket</a>
+        <img src="moon.png" id="icon">
+        <img src ="specdragondark.png" height="50px" width="50px" class="logo"></img>
+    </div>
+</head>
+ <!--Centres main content of page-->
+<body class="text-center"> 
+  <br>
+  <br>
+  <br>
+  <!--Overides BOOTSTRAP DEFAULT-->
+  <h1 style="color: var(--secondary-color); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;" >Shopping Cart</h1>
+    <div>
+       <!--Loads images of all product in users bag and their quantities-->
+      <div class="lenovoLaptop">
+          <h2>Lenovo Laptop</h2>
+          <img src="Lenovopc.png" height="200px" width="200px"alt="Lenovo Computer"></img>
+          <p>£ 4.99</p>
+          <button onclick="addToShoppingCart('lenovoLaptop', 4.99)" id= "button" class="btn btn-primary">Add To Cart</button>
+      </div>
+      <div class="dellLaptop">
+          <h2>Dell Laptop </h2>
+          <img src="dellPc.png" height="200px" width="200px"alt="Dell Computer"></img>
+          <p>£ 4.99</p>
+          <button onclick="addToShoppingCart('dellLaptop', 4.99)"id="button" class="btn btn-primary">Add To Cart</button>
+      </div>
+      <div class="macbookLaptop">
+          <h2>Macbook</h2>
+          <img src="mac.png" height="200px" width="200px"alt="Macbook Computer"></img>
+          <p>£ 4.99</p>
+          <button onclick="addToShoppingCart('macbookLaptop', 4.99)"id="button" class="btn btn-primary">Add To Cart</button>
+      </div>
+      <div class="hpLaptop">
+          <h2>HP Laptop</h2>
+          <img src="hpPc.png" height="200px" width="200px" alt="HP Computer"></img>
+          <p>£ 4.99</p>
+          <button onclick="addToShoppingCart('hpLaptop', 4.99)"id="button" class="btn btn-primary">Add To Cart</button>
+      </div>
+      <div class="customSpec">
+          <h2>CustomSpec</h2>
+          <img src="frameworkLaptop.png" height="200px" width="200px"alt="CustomSpec Computer"></img>
+          <p>£ 4.99</p>
+          <button onclick="addToShoppingCart('customSpec', 4.99)"id="button" class="btn btn-primary">Add To Cart</button>
+      </div>
+      <button onclick="clearBag()">Clear Bag</button>
+      <h2>Total Basket Price</h2>
+      <!--Contains a total price for any given type of product-->
+      <ul id="shoppingCart"></ul>
+      <!--creates a form to accept order-->
+      <form id = "buyNow">
+      <!--Creates a form to display grand total of all products-->
+      <button id="totalShoppingCart" onclick="deleteItems()" class="btn btn-primary"></button>
+      </form>
+      <script>
+      //Deltes items from page so new orders can be made
+      function deleteItems() {
+        //Clears it from local storage aswell as screen
+        localStorage.clear();
+        //Send users alert order is placed
+        alert("ORDER CONFIRMED!");
+        }
+    </script>
+</body>
+<footer>
+     <a href="basket.html">
+    <img class="basket" src="Basket.png" id="iconBasket">
+    </a>
+    <a href="#top" class=Navlink>BACK TO TOP</a>
+    <a href ="contactus.html">
+        <img class="chat" src="Chat.png"id="iconChat">
+    </a>
+</footer>
+<script>
+
+  var icon = document.getElementById("icon");
+
+  var dotheme = (theme) => {
+    document.body.setAttribute("data-theme", theme)
+    if (theme=="light") {
+      icon.src="moon.png"
+      iconChat.src="Chat.png"
+      iconBasket.src="Basket.svg"
+    }else{
+      icon.src="sun.png"
+      iconChat.src="ChatLight.png"
+      iconBasket.src="BasketLight.png"
+    }
+  }
+
+  icon.addEventListener('click', () => {
+    var theme = document.body.getAttribute("data-theme");
+    if (theme == "dark") {
+      dotheme("light");
+    }else {
+      dotheme("dark");
+    }
+  })
+
+  function orderConfirm(){
+    var orderpopup = document.getElementById("orderpopup")
+    orderpopup.classList.toggle("show");
+  }
+</script>
+</html> 

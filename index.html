@@ -1,0 +1,139 @@
+<!--Fix Photos on front screen-->
+<!--Import Logo-->
+<!--Custom Spec Button-->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="basket.js"></script>
+    <div class ="sidenav">
+        <!--Loads a navbar that lets you jump to all pages it follows you doown the web page so it can be easily accessed-->
+        <a id="title" href="#top">Spec Dragon</a>
+        <a href="buildapc.html">Build a Pc</a>
+        <a href="prebuilds.html">Prebuilds</a>
+        <a href="contactus.html">Contact Us</a>
+        <a href="basket.html">Basket</a>
+        <img src="moon.png" id="icon">
+        <img src ="specdragondark.png" height="50px" width="50px" class="logo"></img>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+</head>
+<body>
+  <br>
+  <br>
+  <br>
+  <!--Creates the title for the webpage-->
+  <h1 style="color:var(--secondary-color); text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Home Of PCS</h1>
+  <h2 style="color:var(--secondary-color); text-align: center; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;">Click A  PC to Learn More</h2>
+  <!--Creates the container for a bootstrap standard carousel-->
+    <div id="carouselExample" class="carousel slide">
+      <!--Boot strap standard carousel contains slide show-->
+      <div class="carousel-inner">
+        <div class="carousel-item d-flex justify-content-center active">
+          <a href="Prebuild1.html">
+          <!--Individual images on slideshow displaying available products which can be clicked on to buy-->
+          <img src="Lenovopc.png" class="d-block w-100" alt="Lenovo Laptop" height="400px" width="400px">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Prebuild2.html">
+          <img src="dellPc.png" class="d-block w-100" alt="Dell Laptop" height="400px" width="400px">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Prebuild3.html">
+          <img src="mac.png" class="d-block w-100" alt="Macbook Laptop" height="400px" width="400px">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="Prebuild4.html">
+          <img src="hpPc.png" class="d-block w-100" alt="HP Laptop" height="400px" width="400px">
+          </a>
+        </div>
+      </div>
+      
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" style="color: red;">
+        <span class="carousel-control-prev-icon"></span>
+        <span style="font-weight: bold;">Previous</span>
+      </button>
+      <!--Contrains the buttons to change photo on carousel-->
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" style="color: red;">
+        <span class="carousel-control-next-icon"></span>
+        <span style="font-weight: bold;">Next</span>
+      </button>
+    </div>
+</body>
+<footer id ="indexFooter">
+     <!--This Contains the Basket icon but stored as a clickable link so the users can go to Basket page from icon-->
+    <p>Top of the range PC's have never been more affordable click a computer to find out more</p>
+    <p>Each Pc is super affordable from top Brands, such as Lenovo, Dell, Apple and HP</p>
+    <p>Or build your own from scratch by one of our experts</p>
+    <a href="basket.html">
+    <img class="basket" src="Basket.png" id="iconBasket">
+    </a>
+    <!--This Contains a link to the top of the page important for mobile users as they cant scroll up as fast and 
+    whole page does not always fit on screen-->
+    <a href="#top" class=Navlink>BACK TO TOP</a>
+    <!--This Contains the Contact us icon but stored as a clickable link so the users can go to contact us page from icon-->
+    <a href ="contactus.html">
+        <img class="chat" src="Chat.png"id="iconChat">
+    </a>
+</footer>
+<script>
+  // creates a variable for the Light and dark Icon
+  var icon = document.getElementById("icon");
+  // creates a variable called dotheme which takes the varibale called theme that will alter represent the light and 
+  //dark bacgkrounds and fonts
+  var dotheme = (theme) => {
+    //Calls data-theme from css and sets its attribute to the the theme variable.
+    document.body.setAttribute("data-theme", theme)
+    //This Swaps the light and dark version of each icon
+    if (theme=="light") {
+      // Each Icon is assigned to a file containing its image
+      icon.src="moon.png"
+      iconChat.src="Chat.png"
+      iconBasket.src="Basket.svg"
+    }else{
+      icon.src="sun.png"
+      iconChat.src="ChatLight.png"
+      iconBasket.src="BasketLight.png"
+    }
+  } 
+  // This waits for the icon to be clicked and creates a variable called theme, which is assigned to the data theme 
+  // from our css which assigns colors, when the icon is clicked light and dark our switched.
+  icon.addEventListener('click', () => {
+    var theme = document.body.getAttribute("data-theme");
+    if (theme == "dark") {
+      dotheme("light");
+    }else {
+      dotheme("dark");
+    }
+    })
+    // if the theme is set to dark, the localstorage which stores the colors for font and background swaps it from alternate
+    //color scheme found in css
+    if (theme =="dark"){
+      localStorage.setItem("data-theme", "dark")
+    }else{
+
+      localStorage.setItem("data-theme", "light")
+    }
+    // When the window loads it checks the local storage to see what theme is currently set to so it loads what the user had selected.
+    // Because this is written in internal java script and not external javascirpt different web pages will not share the same local
+    //storage and will therefore revert to the browsers default even if user changes it
+    window.onload = () =>{
+      var getTheme = localStorage.getItem("theme");
+      if(theme == "dark"){
+        dotheme("dark")
+      }else
+      dotheme("light")
+    }
+</script>
+</html>
