@@ -18,7 +18,7 @@
         <a href="prebuilds.html">Prebuilds</a>
         <a href="contactus.html">Contact Us</a>
         <a href="basket.html">Basket</a>
-        <img src="moon.png" id="icon">
+        <img src="moon.png" id="icon" alt="Dark/Light">
         <img src ="specdragondark.png" height="50px" width="50px" class="logo"></img>
     </div>
     <br>
@@ -91,7 +91,7 @@
   // creates a variable for the Light and dark Icon
   var icon = document.getElementById("icon");
   // creates a variable called dotheme which takes the varibale called theme that will alter represent the light and 
-  //dark bacgkrounds and fonts
+  //dark backgrounds and fonts
   var dotheme = (theme) => {
     //Calls data-theme from css and sets its attribute to the the theme variable.
     document.body.setAttribute("data-theme", theme)

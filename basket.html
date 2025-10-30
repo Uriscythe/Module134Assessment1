@@ -15,8 +15,8 @@
         <a href="prebuilds.html">Prebuilds</a>
         <a href="contactus.html">Contact Us</a>
         <a href="basket.html">Basket</a>
-        <img src="moon.png" id="icon">
-        <img src ="specdragondark.png" height="50px" width="50px" class="logo"></img>
+        <img src="moon.png" id="icon" alt="Dark/Light">
+        <img src ="specdragondark.png" height="50px" width="50px" class="logo" alt="logo"></img>
     </div>
 </head>
  <!--Centres main content of page-->
@@ -75,6 +75,9 @@
         //Send users alert order is placed
         alert("ORDER CONFIRMED!");
         }
+      function clearBag(){
+        localStorage.clear();
+      }
     </script>
 </body>
 <footer>
@@ -83,7 +86,7 @@
     </a>
     <a href="#top" class=Navlink>BACK TO TOP</a>
     <a href ="contactus.html">
-        <img class="chat" src="Chat.png"id="iconChat">
+        <img class="chat" src="Chat.png" id="iconChat">
     </a>
 </footer>
 <script>
@@ -112,9 +115,6 @@
     }
   })
 
-  function orderConfirm(){
-    var orderpopup = document.getElementById("orderpopup")
-    orderpopup.classList.toggle("show");
-  }
+
 </script>
 </html> 
